@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Week4</title>
+<script>
+    let a = new Object();
+    a.korName = "웹프로그래밍";
+    a.engName = "Web Programming";
+    a.classCode = "V024002";
+    a.nStudent = 0;
+
+    function register() { this.nStudent++;}
+    function unregister() {this.nStudent--;}
+    function getStudentCount(nStudent) {return nStudent;}     
+</script>
+<script>
+    let b = {
+        korName : "클라우드컴퓨팅",
+        engName : "CloudComputing",
+        classCode : "V024003",
+        nStudent : 0,
+        
+        register : function() { this.nStudent++; },
+        unregister : function() { this.nStudent--; },
+        getstudentCount : function(nStudent) { return nStudent; },
+    };
+</script>
+<script>
+
+</script>
+</head>
+<body>
+<h3>1. 직접 객체 만들기</h3>
+<script>
+    document.write("교과목 이름 = ");
+    document.write(a.korName + "<br>");
+    document.write("등록 학생 수 = ");
+    document.write(a.nStudent + "<br>");
+    document.write("after register, 등록 학생 수 = ");
+    document.write(a.register() + a.getStudentCount + "<br>");
+</script>
+<hr>
+<h3>2. 리터럴 표기법</h3>
+<script>
+    document.write("교과목 이름 = ");
+    document.write(b.korName + "<br>");
+    document.write("등록 학생 수 = ");
+    document.write(b.nStudent + "<br>");
+    document.write("after register, 등록 학생 수 = ");
+    document.write(b.register() + b.getStudentCount + "<br>");
+</script>
+</body>
+</html>
