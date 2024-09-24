@@ -10,10 +10,17 @@
     a.classCode = "V024002";
     a.nStudent = 0;
 
-    function register() { this.nStudent++;}
-    function unregister() {this.nStudent--;}
-    function getStudentCount(nStudent) {return nStudent;}     
+    a.register = function() { 
+        this.nStudent++;
+    };
+    a.unregister = function() {
+        this.nStudent--; 
+    };
+    a.getStudentCount = function() {
+        return this.nStudent;
+    };
 </script>
+
 <script>
     let b = {
         korName : "클라우드컴퓨팅",
@@ -23,11 +30,29 @@
         
         register : function() { this.nStudent++; },
         unregister : function() { this.nStudent--; },
-        getstudentCount : function(nStudent) { return nStudent; },
+        getStudentCount : function() { return this.nStudent; },
     };
 </script>
-<script>
 
+<script>
+    function c() {
+        this.korName = "프로그래밍언어론";
+        this.engName = "Programming Languages";
+        this.classCode = "V024004";
+        this.nStudent = 0;
+
+        this.register = function() {
+            this.nStudent++;
+        };
+        this.unregister = function() {
+            this.nStudent--;
+        };
+        this.getStudentCount = function() {
+            return this.nStudent;
+        };
+    }
+
+    let cObj = new c(); // 프로토타입 객체 생성
 </script>
 </head>
 <body>
@@ -38,9 +63,12 @@
     document.write("등록 학생 수 = ");
     document.write(a.nStudent + "<br>");
     document.write("after register, 등록 학생 수 = ");
-    document.write(a.register() + a.getStudentCount + "<br>");
+    a.register();
+    document.write(a.getStudentCount() + "<br>");
 </script>
+
 <hr>
+
 <h3>2. 리터럴 표기법</h3>
 <script>
     document.write("교과목 이름 = ");
@@ -48,7 +76,21 @@
     document.write("등록 학생 수 = ");
     document.write(b.nStudent + "<br>");
     document.write("after register, 등록 학생 수 = ");
-    document.write(b.register() + b.getStudentCount + "<br>");
+    b.register();
+    document.write(b.getStudentCount() + "<br>");
+</script>
+
+<hr>
+
+<h3>3. 프로토타입</h3>
+<script>
+    document.write("교과목 이름 = ");
+    document.write(cObj.korName + "<br>");
+    document.write("등록 학생 수 = ");
+    document.write(cObj.nStudent + "<br>");
+    document.write("after register, 등록 학생 수 = ");
+    cObj.register();
+    document.write(cObj.getStudentCount() + "<br>");
 </script>
 </body>
 </html>
